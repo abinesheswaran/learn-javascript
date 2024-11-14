@@ -7,3 +7,21 @@ export function setupCounter(element) {
   element.addEventListener('click', () => setCounter(counter + 1));
   setCounter(0);
 }
+
+const obj = {
+  name: 'abinesh',
+  fn: function (arg1, arg2) {
+    console.log(this, arg1, arg2);
+  },
+};
+const obj2 = {
+  name: 'anushick',
+};
+
+const fn = obj.fn;
+
+const callingFn = fn.bind(obj2, 'sample arg1');
+callingFn();
+callingFn('sample arg2');
+
+console.log(obj2);
